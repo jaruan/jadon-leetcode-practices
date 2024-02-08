@@ -1,0 +1,10 @@
+{
+  "name": "jadon-leetcode-practices",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jadon Yuen",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
+}
