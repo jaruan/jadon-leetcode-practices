@@ -8,11 +8,11 @@
  * @return {number[]}
  */
 const sortArrayBySelection = (nums) => {
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length - 1; i++) {
+        const minIndex = i;
         for (let j = i + 1; j < nums.length; j++) {
-            const compareNum = nums[j]; 
-            if (nums[i] > compareNum) {
-                swap(nums, i, j);
+            if (nums[j] < nums[minIndex]) {
+                swap(nums, minIndex, j);
             }
         }
     }
