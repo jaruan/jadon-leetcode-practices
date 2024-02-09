@@ -1,20 +1,26 @@
 /**
  * https://leetcode.cn/problems/two-sum/
  * 
+ * Two numbers in the array sum to the target value, which means that find a different number in the array that can be added to the current number to get the target value.
+ * 
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
 const twoSum = (nums, target) => {
-    let results = [];
-
-    nums.forEach((num, curIndex) => {
-        const diff = target - num;
-        const index = nums.indexOf(diff);
-        if (index > -1) {
-            results = [index, curIndex];
+    let results;
+    if (nums.length < 2) {
+        return results;
+    }
+    const hashTable = {};
+    for(let i = 0; i < nums.length; i++) {
+        const diff = target - nums[i];  
+        if (hashTable[diff] !== undefined) {
+            results = [hashTable[diff], i];
+            break;
         }
-    });
+        hashTable[nums[i]] = i;
+    }
 
     return results;
 };
