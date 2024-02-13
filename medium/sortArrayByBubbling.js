@@ -4,22 +4,25 @@
  * 
  * Bubble Sort
  * The bubble sort algorithm sorts an array by repeatedly stepping through the list to be sorted, comparing each pair of adjacent items and swapping them if they are in the wrong order.
+ * 
+ * Techniques:
+ * Focus on the sorted number will be moved to the end of the array after each iteration. So we can reduce the number of iterations by 1 for each iteration.
  */
 const sortArrayByBubbling = (nums) => {
     for (let i = 1; i < nums.length; i++) {
         let flag = true;
         for (let j = 0; j < nums.length - i; j++) {
-            if (nums[j] > nums[j + 1]) {
+            if (nums[j] > nums[j + 1]) {  
                 swap(nums, j, j + 1);
                 flag = false;
             }
         }
-      
+
         if (flag) {
             break;
         }
     }
-  
+
     return nums;
 };
 
