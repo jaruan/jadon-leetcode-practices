@@ -11,8 +11,8 @@ const sortArrayBySelection = (nums) => {
     for (let i = 0; i < nums.length - 1; i++) {
         const minIndex = i; 
         for (let j = i + 1; j < nums.length; j++) {
-            if (nums[j] < nums[minIndex]) { // Core meaning: Always swap the value of the minIndex for each iteration
-                swap(nums, minIndex, j);
+            if (nums[j] < nums[minIndex]) { // search the minimum number in the unsorted part, and move it to the sorted part
+                swap(nums, minIndex, j); 
             }
         }
     }

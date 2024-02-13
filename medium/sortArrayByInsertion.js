@@ -8,19 +8,41 @@
  * Separate the array into two parts: sorted and unsorted. The first element is the sorted part and the rest are unsorted. Then we will move the first element of the unsorted part to the sorted part and keep the sorted part sorted.
  */
 
+// const sortArrayByInsertion = (nums) => {
+//     for (let i = 1; i < nums.length; i++) {
+//         for (let j = i; j > 0; j--) {
+//             if (nums[j] < nums[j-1]) {
+//                 swap(nums, j, j-1);
+//             } else {
+//                 break;
+//             }
+//         }
+//     }
+
+//     return nums;
+// };
+
+/**
+ * Optimized the above solution
+ */
 const sortArrayByInsertion = (nums) => {
-    for (let i = 1; i < nums.length; i++) {
-        for (let j = i; j > 0; j--) {
-            if (nums[j] < nums[j-1]) {
-                swap(nums, j, j-1);
+    const len = nums.length;
+    for (let i = 1; i < len; i++) {
+        const temp = nums[i];
+        let j;
+        for (j = i; j > 0; j--) {
+            if (nums[j - 1] > temp) {
+                nums[j] = nums[j - 1]; 
             } else {
                 break;
             }
         }
+        nums[j] = temp;
     }
 
     return nums;
 };
+
 
 const swap = (arr, index1, index2) => {
     const temp = arr[index1];
